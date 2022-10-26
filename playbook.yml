@@ -3,15 +3,17 @@
 - hosts: web
   
   vars:
-   root_password: 'roo'
+   root_password: 'root'
 
   tasks:
   - name: installation Mariadb
     yum:
-     name: 
+     name: "{{ item }}"
+     state: present
+    loop:
        - mariadb
        - python3-PyMySQL
-     state: present
+       - mariadb-server
 
   - name: Activation Mariadb
     systemd:
