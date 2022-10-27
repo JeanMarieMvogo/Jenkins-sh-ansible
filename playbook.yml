@@ -1,24 +1,8 @@
 ---
 
 - hosts: web
-  
-  vars:
-   root_password: 'root'
 
-  tasks:
-  - name: installation Mariadb
-    yum:
-     name: "{{ item }}"
-     state: present
-    loop:
-       - mariadb
-       - python3-PyMySQL
-       - mariadb-server
-
-  - name: Activation Mariadb
-    systemd:
-     name: mariadb
-     state: started
-     enabled: yes
-
- 
+- roles:
+   - role/nginx
+   - role/php
+   - role/mariadb
