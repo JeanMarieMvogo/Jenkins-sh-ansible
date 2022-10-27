@@ -5,7 +5,7 @@
    state: present
   loop:
     - mariadb
-    - python3-PyMySQL
+    - python2-PyMySQL
     - mariadb-server
 
 - name: Activation Mariadb
